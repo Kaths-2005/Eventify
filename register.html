@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <form action="login.php" method="POST" id="registerForm" class="form-container">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="pid">PID Number:</label>
+            <input type="text" id="pid" name="pid" required pattern="\d{6}" title="Please enter a valid 6-digit PID">
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required pattern="^[a-zA-Z0-9._%+-]+@(student\.sfit\.ac\.in|staff\.sfit\.ac\.in)$" title="Email must end with student.sfit.ac.in or staff.sfit.ac.in">
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <div class="form-group">
+            <label for="confirm-password">Confirm Password:</label>
+            <input type="password" id="confirm-password" name="confirm-password" required>
+        </div>
+        <button type="submit">Register</button>
+    </form>
+
+    <script src="form.js"></script>
+</body>
+</html>
