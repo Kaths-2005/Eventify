@@ -1,83 +1,113 @@
-/* General body style for all pages */
+/* General Styles */
 body {
-     background-image: url("C:\XAMPP\htdocs\EVENTIFY\sfit.jpg");
-    background-color: #cccccc;
-    background-repeat: no-repeat;
-  background-attachment: fixed;  
-  background-size: cover;
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  margin: 0;
-  padding: 50px;
+    font-family: Arial, sans-serif;
+    background: url('assets/images/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    margin: 0;
 }
 
-/* Homepage styles */
+.navbar {
+    background-color: darkblue;
+    padding: 15px;
+}
+
+.navbar ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.navbar ul li {
+    margin: 0 15px;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    padding: 20px;
+    gap: 20px;
+}
+
+.left-panel {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.center-panel {
+    text-align: center;
+}
+
+.user-info {
+    margin-bottom: 20px;
+}
+
+.info-box {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    color: black;
+    font-size: 18px;
+}
+
+.event-post {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.event-post img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.reactions span {
+    cursor: pointer;
+    margin: 0 10px;
+    font-size: 24px;
+}
+
+.comments p {
+    font-size: 14px;
+    color: #ccc;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: darkblue;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
 h1 {
-  color: white;
-  text-align: center;
-  margin-top: 200px;
-  font-size: 48px;
+    color: darkblue;
 }
 
-.login-btn {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background-color: #007BFF;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-  border-radius: 5px;
+table {
+    width: 100%;
+    border-collapse: collapse;
 }
 
-.login-btn:hover {
-  background-color: #0056b3;
+th, td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
 }
 
-/* Form container styles */
-.form-container {
-  background-color: white;
-  padding: 20px;
-  border-radius: 5px;
-  max-width: 400px;
-  margin: 0 auto;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+td:hover {
+    cursor: pointer;
+    background-color: #e0e0e0;
 }
 
-/* Form group styles */
-.form-group {
-  margin-bottom: 15px;
-}
-
-label {
-  display: block;
-  margin-bottom: 5px;
-}
-
-input {
-  width: 100%;
-  padding: 8px;
-  margin: 5px 0;
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-button {
-  width: 100%;
-  background-color: #007BFF;
-  color: white;
-  padding: 10px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #0056b3;
-}
-body{
-  background-image: url('sfit.jpg');
-}
