@@ -38,10 +38,72 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>Register</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-image: url('sfit.jpg'); /* Background image */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: black; /* Text color */
+        }
+
+        form {
+            background: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+            padding: 20px; /* Adjusted padding for a smaller box */
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            width: 300px; /* Set a fixed width for the box */
+            box-sizing: border-box; /* Include padding in width */
+        }
+
+        h2 {
+            color: black; /* Header text color */
+            text-align: center; /* Center the heading */
+        }
+
+        input[type="text"], 
+        input[type="email"], 
+        input[type="password"] {
+            width: 100%; /* Full width of the form */
+            padding: 10px; /* Adjust padding for better appearance */
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px; /* Adjust font size */
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: navy; /* Button color */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%; /* Full width for the button */
+        }
+
+        input[type="submit"]:hover {
+            background-color: #1a237e; /* Darker navy on hover */
+        }
+
+        /* Error message style */
+        p.error {
+            color: red;
+            text-align: center; /* Center error message */
+            margin-top: 10px; /* Space above the error message */
+        }
+    </style>
 </head>
 <body>
-    <h2>Register</h2>
     <form action="" method="POST">
+        <h2>Register</h2>
+
         <label for="name">Name:</label>
         <input type="text" name="name" required><br>
 
