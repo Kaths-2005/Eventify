@@ -6,10 +6,50 @@
   <title>Eventify</title>
   <link rel="stylesheet" href="styles.css">
   <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Apply background image to the entire page */
+    .background {
+      background-image: url('sfit.jpg'); /* Your background image */
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    h1 {
+      color: black; /* Set text color to black */
+      font-size: 60px;
+      margin: 20px 0;
+      position: relative; /* Make sure it's above other elements */
+      z-index: 10;
+    }
+
+    h2.tagline {
+      color: black; /* Set text color to black */
+      font-size: 24px;
+      font-style: italic;
+      margin-top: -10px;
+      margin-bottom: 40px;
+      position: relative; /* Ensure it's properly placed */
+      z-index: 10;
+    }
+
     .slideshow-container {
       position: relative;
       max-width: 1000px;
       margin: auto;
+      z-index: 1;
     }
 
     .slides {
@@ -34,6 +74,7 @@
       transition: 0.6s ease;
       border-radius: 0 3px 3px 0;
       user-select: none;
+      z-index: 2;
     }
 
     .next {
@@ -47,6 +88,8 @@
 
     .dots {
       text-align: center;
+      margin-top: 10px;
+      z-index: 2;
     }
 
     .dots span {
@@ -77,7 +120,7 @@
     }
 
     .modal-content {
-      background-image: url('bg-image.jpg'); /* Add your background image here */
+      background-image: url('sfit.jpg'); /* Background image for the modal */
       background-size: cover;
       background-position: center;
       margin: 15% auto;
@@ -125,24 +168,96 @@
       text-decoration: none;
       cursor: pointer;
     }
+
+    /* Updated login button */
+    .login-btn {
+      position: absolute; /* Absolute positioning */
+      top: 20px; /* Distance from the top */
+      right: 20px; /* Distance from the right */
+      padding: 8px 12px; /* Smaller padding */
+      font-size: 14px; /* Adjusted font size */
+      border-radius: 5px; /* Rounded edges */
+      background-color: navy; /* Navy blue color */
+      color: white;
+      border: none;
+      cursor: pointer;
+      z-index: 2; /* Ensure it's clickable above other elements */
+    }
+
+    .login-btn:hover {
+      background-color: #1a237e; /* Slightly darker navy on hover */
+    }
   </style>
 </head>
 <body>
-  <h1>Eventify</h1>
-  <button class="login-btn" onclick="openModal()">Login</button>
+  <div class="background">
+    <button class="login-btn" onclick="openModal()">Login</button>
+    <h1>Eventify</h1>
+    <h2 class="tagline">Where Events are Personified</h2>
 
-  <div class="slideshow-container">
-    <!-- Your slideshow content -->
-  </div>
+    <!-- Slideshow container -->
+    <div class="slideshow-container">
+      <div class="slides">
+        <img src="iris.jpg" alt="Iris Event">
+      </div>
 
-  <!-- Modal -->
-  <div id="loginModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal()">&times;</span>
-      <h2>Select Login Type</h2>
-      <div class="login-options">
-        <button onclick="window.location.href='log.php'">Admin</button>
-        <button onclick="window.location.href='login.php'">Student</button>
+      <div class="slides">
+        <img src="ad.jpg" alt="Ad Event">
+      </div>
+
+      <div class="slides">
+        <img src="igni.jpg" alt="Igni Event">
+      </div>
+
+      <div class="slides">
+        <img src="mos.jpg" alt="MOS Event">
+      </div>
+
+      <div class="slides">
+        <img src="iv.jpg" alt="IV Event">
+      </div>
+
+      <div class="slides">
+        <img src="rek.jpg" alt="Rek Event">
+      </div>
+
+      <div class="slides">
+        <img src="trad.jpg" alt="Trad Event">
+      </div>
+
+      <div class="slides">
+        <img src="garba.jpg" alt="Garba Event">
+      </div>
+
+      <div class="slides">
+        <img src="dj.jpg" alt="DJ Event">
+      </div>
+
+      <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+      <a class="next" onclick="changeSlide(1)">&#10095;</a>
+    </div>
+
+    <div class="dots">
+      <span onclick="currentSlide(1)"></span>
+      <span onclick="currentSlide(2)"></span>
+      <span onclick="currentSlide(3)"></span>
+      <span onclick="currentSlide(4)"></span>
+      <span onclick="currentSlide(5)"></span>
+      <span onclick="currentSlide(6)"></span>
+      <span onclick="currentSlide(7)"></span>
+      <span onclick="currentSlide(8)"></span>
+      <span onclick="currentSlide(9)"></span>
+    </div>
+
+    <!-- Modal -->
+    <div id="loginModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>Select Login Type</h2>
+        <div class="login-options">
+          <button onclick="window.location.href='log.php'">Admin</button>
+          <button onclick="window.location.href='login.php'">Student</button>
+        </div>
       </div>
     </div>
   </div>
@@ -164,7 +279,7 @@
       }
     }
 
-    // Slideshow script (unchanged)
+    // Slideshow script
     let slideIndex = 1;
     showSlides(slideIndex);
 
