@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connectify</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .slideshow-container {
+      position: relative;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .slides {
+      display: none;
+    }
+
+    .slides img {
+      width: 100%;
+      height: 500px;
+    }
+
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      margin-top: -22px;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      transition: 0.6s ease;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+    }
+
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+
+    .prev:hover, .next:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .dots {
+      text-align: center;
+    }
+
+    .dots span {
+      cursor: pointer;
+      height: 15px;
+      width: 15px;
+      margin: 0 2px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+    }
+
+    .active, .dots span:hover {
+      background-color: #717171;
+    }
+  </style>
+</head>
+<body>
+  <h1>Eventify</h1>
+  <button class="login-btn" onclick="window.location.href='login.html'">Login</button>
+
+  <div class="slideshow-container">
+    <div class="slides">
+      <img src="iris.jpg" alt="Iris Event">
+    </div>
+
+    <div class="slides">
+      <img src="ad.jpg" alt="Ad Event">
+    </div>
+
+    <div class="slides">
+      <img src="igni.jpg" alt="Igni Event">
+    </div>
+
+    <div class="slides">
+      <img src="mos.jpg" alt="MOS Event">
+    </div>
+
+    <div class="slides">
+      <img src="iv.jpg" alt="IV Event">
+    </div>
+
+    <div class="slides">
+      <img src="rek.jpg" alt="Rek Event">
+    </div>
+
+    <div class="slides">
+      <img src="trad.jpg" alt="Trad Event">
+    </div>
+
+    <div class="slides">
+      <img src="garba.jpg" alt="Garba Event">
+    </div>
+
+    <div class="slides">
+      <img src="dj.jpg" alt="DJ Event">
+    </div>
+
+    <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+    <a class="next" onclick="changeSlide(1)">&#10095;</a>
+  </div>
+
+  <div class="dots">
+    <span onclick="currentSlide(1)"></span>
+    <span onclick="currentSlide(2)"></span>
+    <span onclick="currentSlide(3)"></span>
+    <span onclick="currentSlide(4)"></span>
+    <span onclick="currentSlide(5)"></span>
+    <span onclick="currentSlide(6)"></span>
+    <span onclick="currentSlide(7)"></span>
+    <span onclick="currentSlide(8)"></span>
+    <span onclick="currentSlide(9)"></span>
+  </div>
+
+  <script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function changeSlide(n) {
+      showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+      let i;
+      const slides = document.getElementsByClassName("slides");
+      const dots = document.getElementsByClassName("dots")[0].getElementsByTagName("span");
+
+      if (n > slides.length) { slideIndex = 1 }
+      if (n < 1) { slideIndex = slides.length }
+
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+
+      slides[slideIndex - 1].style.display = "block";
+      dots[slideIndex - 1].className += " active";
+    }
+
+    setInterval(() => {
+      changeSlide(1);
+    }, 5000); // Auto-slide every 5 seconds
+  </script>
+</body>
+</html>
