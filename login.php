@@ -62,17 +62,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
             width: 300px; /* Set a fixed width for the box */
             box-sizing: border-box; /* Include padding in width */
-            position: relative; /* Position relative for header placement */
         }
 
         h2 {
             color: black; /* Header text color */
             text-align: center; /* Center the heading */
-            margin: 0; /* Remove margin to avoid extra space */
-            position: absolute; /* Positioning */
-            top: -20px; /* Move the heading above the box */
-            left: 50%; /* Center horizontally */
-            transform: translateX(-50%); /* Adjust position */
+            margin: 0 0 20px; /* Remove margin on top and add space below */
         }
 
         input[type="text"], 
@@ -107,11 +102,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             text-align: center; /* Center error message */
             margin-top: 10px; /* Space above the error message */
         }
+
+        /* Register link style */
+        .register-link {
+            text-align: center; /* Center the link */
+            margin-top: 15px; /* Space above the link */
+        }
     </style>
 </head>
 <body>
     <form action="" method="POST">
-        <h2>Login</h2> <!-- Heading now inside the form -->
+        <h2>Login</h2> <!-- Header inside the form -->
         
         <?php if (isset($error_message)) : ?>
             <p class="error"><?= htmlspecialchars($error_message) ?></p>
@@ -127,6 +128,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <input type="password" name="password" required>
 
         <input id="login_submit" type="submit" value="Login">
+
+        <div class="register-link">
+            <p>If not signed in, <a href="register.php">Register Here</a></p>
+        </div>
     </form>
 </body>
 </html>
