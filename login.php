@@ -41,23 +41,90 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>Login</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-image: url('sfit.jpg'); /* Background image */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: black; /* Text color */
+        }
+
+        form {
+            background: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+            padding: 40px; /* Adjusted padding for more space */
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            width: 300px; /* Set a fixed width for the box */
+            box-sizing: border-box; /* Include padding in width */
+            position: relative; /* Position relative for header placement */
+        }
+
+        h2 {
+            color: black; /* Header text color */
+            text-align: center; /* Center the heading */
+            margin: 0; /* Remove margin to avoid extra space */
+            position: absolute; /* Positioning */
+            top: -20px; /* Move the heading above the box */
+            left: 50%; /* Center horizontally */
+            transform: translateX(-50%); /* Adjust position */
+        }
+
+        input[type="text"], 
+        input[type="email"], 
+        input[type="password"] {
+            width: 100%; /* Full width of the form */
+            padding: 10px; /* Adjust padding for better appearance */
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px; /* Adjust font size */
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: navy; /* Button color */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%; /* Full width for the button */
+        }
+
+        input[type="submit"]:hover {
+            background-color: #1a237e; /* Darker navy on hover */
+        }
+
+        /* Error message style */
+        p.error {
+            color: red;
+            text-align: center; /* Center error message */
+            margin-top: 10px; /* Space above the error message */
+        }
+    </style>
 </head>
 <body>
-    <h2>Login</h2>
-
-    <?php if (isset($error_message)) : ?>
-        <p style="color: red;"><?= htmlspecialchars($error_message) ?></p>
-    <?php endif; ?>
-
     <form action="" method="POST">
-        <label id="pid" for="pid">PID (6 digits):</label>
-        <input type="text" name="pid" required pattern="\d{6}" title="Enter a 6-digit PID"><br>
+        <h2>Login</h2> <!-- Heading now inside the form -->
+        
+        <?php if (isset($error_message)) : ?>
+            <p class="error"><?= htmlspecialchars($error_message) ?></p>
+        <?php endif; ?>
 
-        <label id="email" for="email">Email:</label>
-        <input type="email" name="email" required><br>
+        <label for="pid">PID (6 digits):</label>
+        <input type="text" name="pid" required pattern="\d{6}" title="Enter a 6-digit PID">
 
-        <label id="password" for="password">Password:</label>
-        <input type="password" name="password" required><br>
+        <label for="email">Email:</label>
+        <input type="email" name="email" required>
+
+        <label for="password">Password:</label>
+        <input type="password" name="password" required>
 
         <input id="login_submit" type="submit" value="Login">
     </form>
